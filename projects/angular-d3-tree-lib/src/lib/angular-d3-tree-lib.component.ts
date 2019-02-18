@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, ViewChild, ElementRef,
-   Input, Output, EventEmitter} from '@angular/core';
+   Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
 
 import { AngularD3TreeLibService } from './angular-d3-tree-lib.service';
 @Component({
@@ -9,7 +9,9 @@ import { AngularD3TreeLibService } from './angular-d3-tree-lib.service';
       class="d3-chart"
       #chart></div>
   `,
-  styleUrls: ['./angular-d3-tree-lib.component.css']
+  styleUrls: ['./angular-d3-tree-lib.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class AngularD3TreeLibComponent implements OnInit, OnChanges {
   @ViewChild('chart') private chartContainer: ElementRef;
